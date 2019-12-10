@@ -1,21 +1,16 @@
 package abstractClasses;
 
-public class AbstractPatient{
-    private int patientID;
-    private String patient;
+public class AbstractPatient extends AbstractClinic {
 
-    public AbstractPatient(int patientID, String patient){
-        this.patient = patient;
-        this.patientID = patientID;
+    public AbstractPatient(int patientId, String patientName) {
+        super(patientId, patientName);
+        System.out.println(super.getPatientName()+" is now a patient in our clinic and has the following Id "
+                           +super.getPatientId());
     }
 
-    public int getPatientID() {
-        return patientID;
+    @Override
+    public String toString() {
+        return "AbstractPatient{ Patient name: " + super.getPatientName()+ "; Patient Id : "+ super.getPatientId()
+                +" }";
     }
-
-    public String getPatient() {
-        return patient;
-    }
-
-
 }

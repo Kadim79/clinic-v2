@@ -16,7 +16,7 @@ Features:
 Checkpoint 1.
 
 Create the following:
--	Class:
+Class:
 -	ClinicRunner
 -	HumanClinic
 -	HumanPatient
@@ -24,12 +24,15 @@ Create the following:
 -	PetPatient (optional)
 -	ClinicFileReader
 -	ClinicKeyboardReader (optional)
--	AbstractClass
+
+AbstractClass
 -	AbstractClinic
 -	AbstractPatient
--	Interface
+
+Interface
 -	ClinicReader
--	Enum
+
+Enum
 -	PatientTypes (optional)
 
 
@@ -79,23 +82,29 @@ Checkpoint 2. Defining first methods in ClinicReader.
 	First of all, we will need to have two methods in ClinicReader.
 
 	List<AbstractPatient> readPatients() throws IOException, URISyntaxException;
-Map<Integer, String> readProblems() throws IOException, URISyntaxException;
+	
+    Map<Integer, String> readProblems() throws IOException, URISyntaxException;
 
 This means that we will, somehow, in our implementations read both patients and problems for them.
-Since we can have both human and pet patients, files for both human patients/problems and pet patients/problems are provided.
-
+Since we can have both human and pet patients, files for both human patients/problems and pet patients/problems 
+are provided.
 
 
 Checkpoint 2. Reading data
-	We need to read data to add our patients. We are going to create two classes that use the ClinicReader interface.
-	Initially, we want to read data only from the file. That means that we’ll make sure that the ClinicFileReader class will implement the ClinicReader interface.
-	At this time, ClinicFileReader will have bodies for the two methods and will return null. We need to write the code that reads from a file called human_patients.txt in the readPatients() method and we will need to write code that reads from a file called human_problems.txt in the readProblems() method.
+	
+	
+	
 [Optional]
-Create a constructor so that you can use ClinicFileReader to work with either Human or Pet type patients by receiving the type from an enum. The enum will have the file names stored in it. That enum will have a constructor that receives two parameters. First parameter will be the name of the file for a given patient type. The second parameter is the name of the file of the problems for that specific patient type.
-The enum needs to have two private String fields that will be set in the constructor of the enum. There need to be getters for the two fields.
+Create a constructor so that you can use ClinicFileReader to work with either Human or Pet type patients 
+by receiving the type from an enum. The enum will have the file names stored in it. That enum will have 
+a constructor that receives two parameters. First parameter will be the name of the file for a given 
+patient type. The second parameter is the name of the file of the problems for that specific patient type.
+The enum needs to have two private String fields that will be set in the constructor of the enum. 
+There need to be getters for the two fields.
 This way we decouple the FileReader from the PatientType filenames.
 
-Now, you will need to write the actual code that will read the patients and the problems from files called human_patients.txt and human_problems.txt ;
+Now, you will need to write the actual code that will read the patients and the problems from files 
+called human_patients.txt and human_problems.txt ;
 
 
 We will need to use the following code to read from a file called ‘human_patients.txt’ :
@@ -123,14 +132,22 @@ Checkpoint 3. Creating patients
 -	An additional constructor to match the new field.This constructor will have three parameters now.
 -	A getter for the new field.
 
-	Checkpoint 4. Creating human patients.
-		The humanPatient class needs to extend AbstractPatient. It will need to have a constructor that calls the two parameter super constructor of AbstractPatient.
+Checkpoint 4. Creating human patients.
+		The humanPatient class needs to extend AbstractPatient. It will need to have a constructor that calls 
+		the two parameter super constructor of AbstractPatient.
+
 [Optional]
+
 -	Another constructor to match the three parameter constructor created in AbstractPatient
 
-Add code in the constructor of HumanPatient so that when a new HumanPatient object is created, we print to the console (sout) the name of the patient and the fact that has has been added. The message should read like:
-‘Human patient Mirel has been added. Get well Mirel!”. Mirel will be the variable name that is received in the constructor.
+Add code in the constructor of HumanPatient so that when a new HumanPatient object is created, 
+we print to the console (sout) the name of the patient and the fact that has has been added. 
+The message should read like:
+‘Human patient Mirel has been added. Get well Mirel!”. Mirel will be the variable name that 
+is received in the constructor.
+
 [Optional]
+
 -	In the additional constructor, print a message like:
 		‘Human patient Mirel suffering from raceala has been added. Get well Mirel!”
  Mirel will be value of the variable patientName and raceala can be the value of the variable problem. This part can be completed in a following checkpoint, after reading problems from a file and populating a map
