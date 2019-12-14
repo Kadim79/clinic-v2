@@ -1,10 +1,9 @@
 import abstractClasses.AbstractClinic;
 import abstractClasses.AbstractPatient;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 public class HumanClinic extends AbstractClinic {
@@ -12,9 +11,6 @@ public class HumanClinic extends AbstractClinic {
     List<AbstractPatient> patients = new ArrayList<>();
     ClinicFileReader clinicReader;
 
-    public HumanClinic(int patientId, String patientName) throws IOException, URISyntaxException {
-      //  super(patientId, patientName);
-    }
 
     @Override
     public void addPatient(AbstractPatient patient){
@@ -47,9 +43,10 @@ public class HumanClinic extends AbstractClinic {
 
     @Override
     public void listPatients() {
-        System.out.println("Lista de pacienti recenr adaugati");
-        for (int i = 0; i < patients.size(); i++){
-            System.out.println(patients.get(i));
+
+        for (Map.Entry<Integer, AbstractPatient> entryPatient : currentPatients.entrySet()){
+            System.out.println(entryPatient.getKey() + " " + entryPatient.getValue());
         }
+
     }
 }
