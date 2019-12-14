@@ -3,11 +3,12 @@ package abstractClasses;
 import java.util.List;
 
 public class AbstractPatient extends AbstractClinic {
-
+    private int patientId;
+    private String patientName;
     public AbstractPatient(int patientId, String patientName) {
-        super(patientId, patientName);
-        System.out.println(super.getPatientName()+" is now a patient in our clinic and has the following Id "
-                           +super.getPatientId());
+       // super(patientId, patientName);
+        System.out.println(patientName+" is now a patient in our clinic and has the following Id "
+                           +patientId);
     }
 
     @Override
@@ -37,7 +38,7 @@ public class AbstractPatient extends AbstractClinic {
 
     @Override
     public String toString() {
-        return "AbstractPatient{ Patient name: " + super.getPatientName()+ "; Patient Id : "+ super.getPatientId()
+        return "AbstractPatient{ Patient name: " + patientName+ "; Patient Id : "+ patientId
                 +" }";
     }
 }

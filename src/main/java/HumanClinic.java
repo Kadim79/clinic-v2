@@ -9,16 +9,17 @@ import java.util.*;
 
 public class HumanClinic extends AbstractClinic {
     public List<AbstractPatient> patients = new ArrayList<>();
-    public HumanPatient humanPatient;
+    ClinicFileReader clinicReader;
 
     public HumanClinic(int patientId, String patientName) throws IOException, URISyntaxException {
-        super(patientId, patientName);
+      //  super(patientId, patientName);
     }
 
     @Override
-    public void addPatient(AbstractPatient patient) {
-        patient = humanPatient.temporaryPatient;
-        patients.add(patient);
+    public void addPatient(AbstractPatient patient){
+      // AbstractPatient temporaryPatient = new AbstractPatient(getPatientId(), getPatientName());
+       // patients.add(temporaryPatient);
+
     }
 
     @Override
@@ -33,7 +34,7 @@ public class HumanClinic extends AbstractClinic {
 
     @Override
     public void removeByPatientID(Integer patientId) {
-        patients.remove(abstractPatient.getPatientId());
+       // patients.remove();
     }
 
     @Override
