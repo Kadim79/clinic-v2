@@ -24,18 +24,16 @@ public class ClinicFileReader implements ClinicReader {
 
         readFileByName("human_problems.txt");
 
-
         return null;
     }
 
-    private List<String>readFileByName(String fileName) throws IOException,URISyntaxException {
+    public List<String>readFileByName(String fileName) throws IOException,URISyntaxException {
 
         URI patients = ClassLoader.getSystemResource(fileName).toURI();
         Path pathOfPatients = Paths.get(patients);
         List<String> strings = Files.readAllLines(pathOfPatients);
 
         return strings;
-
     }
 }
 
