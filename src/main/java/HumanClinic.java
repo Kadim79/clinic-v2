@@ -1,14 +1,15 @@
 import abstractClasses.AbstractClinic;
 import abstractClasses.AbstractPatient;
-import abstractClasses.ClinicReader;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class HumanClinic extends AbstractClinic {
-    public List<AbstractPatient> patients = new ArrayList<>();
+
+    List<AbstractPatient> patients = new ArrayList<>();
     ClinicFileReader clinicReader;
 
     public HumanClinic(int patientId, String patientName) throws IOException, URISyntaxException {
@@ -17,14 +18,19 @@ public class HumanClinic extends AbstractClinic {
 
     @Override
     public void addPatient(AbstractPatient patient){
-      // AbstractPatient temporaryPatient = new AbstractPatient(getPatientId(), getPatientName());
-       // patients.add(temporaryPatient);
 
+        currentPatients.put(patient.getPatientId(),patient);
     }
 
-    @Override
-    public void addBulkPatient(List patients) {
-    }
+   @Override
+
+   public void addBulkPatient(List<AbstractPatient> patients){
+
+       for (int i = 0; i <patients.size() ; i++) {
+           addPatient(patients.get(i));
+       }
+
+   }
 
     @Override
     public void removePatientByPatientObject(AbstractPatient patient) {
@@ -34,7 +40,9 @@ public class HumanClinic extends AbstractClinic {
 
     @Override
     public void removeByPatientID(Integer patientId) {
-       // patients.remove();
+
+        currentPatients.remove(patientId);
+
     }
 
     @Override

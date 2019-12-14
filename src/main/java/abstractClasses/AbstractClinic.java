@@ -8,15 +8,15 @@ import java.util.List;
 public abstract class AbstractClinic {
 
 
-    Map<Integer, AbstractPatient> currentPatients;
-
+    public Map<Integer, AbstractPatient> currentPatients;
 
 
     public abstract void addPatient(AbstractPatient patient) throws IOException, URISyntaxException;
-    public abstract void addBulkPatient(List patients);
+    public abstract void addBulkPatient(List<AbstractPatient> patients);
     public abstract void removePatientByPatientObject(AbstractPatient patient);
     public abstract void removeByPatientID(Integer patientId);
     public abstract void listPatients();
 
 }
+
 

@@ -5,10 +5,22 @@ import java.util.List;
 public class AbstractPatient extends AbstractClinic {
     private int patientId;
     private String patientName;
+
     public AbstractPatient(int patientId, String patientName) {
-       // super(patientId, patientName);
-        System.out.println(patientName+" is now a patient in our clinic and has the following Id "
+
+        this.patientId = patientId;
+        this.patientName = patientName;
+
+        System.out.println(patientName + " is now a patient in our clinic and has the following Id. Get well! "
                            +patientId);
+    }
+
+    public int getPatientId() {
+        return patientId;
+    }
+
+    public String getPatientName() {
+        return patientName;
     }
 
     @Override
