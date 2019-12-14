@@ -6,7 +6,7 @@ public class HumanPatient extends AbstractPatient {
         super(patientId, patientName);
     }
 
- //  AbstractPatient temporaryPatient = new AbstractPatient(getPatientId(), getPatientName());
+    AbstractPatient temporaryPatient = new AbstractPatient(getPatientId(), getPatientName());
 
 
 
