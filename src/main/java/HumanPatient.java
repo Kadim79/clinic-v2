@@ -5,8 +5,9 @@ public class HumanPatient extends AbstractPatient {
     public HumanPatient(int patientId, String patientName) {
         super(patientId, patientName);
     }
-
-    AbstractPatient temporaryPatient = new AbstractPatient(getPatientId(), getPatientName());
+    public HumanPatient(int patientId, String patientName, String problemNAME) {
+        super(patientId, patientName, problemNAME);
+    }
 
 
 

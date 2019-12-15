@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,14 +26,16 @@ public class ClinicFileReader implements ClinicReader {
 
         List<String> strings = readFileByName(type.getPatientName());
         List<AbstractPatient> patients = new ArrayList<>();
+        Map<Integer, String> integerStringMap = readProblems();
 
         for(int i = 0; i < strings.size(); i++){
 
             String ReadLines = strings.get(i);
             String[] ArrayOfStrings = ReadLines.split(",");
-            System.out.println("PatientID " + ArrayOfStrings[0] + " PatientName " + ArrayOfStrings[1] + " diseaseID");
+          //  System.out.println("PatientID " + ArrayOfStrings[0] + " PatientName " + ArrayOfStrings[1] );
 
-            AbstractPatient patient = new HumanPatient(Integer.valueOf(ArrayOfStrings[0]), ArrayOfStrings[1]);
+            AbstractPatient patient = new HumanPatient(Integer.valueOf(ArrayOfStrings[0]), ArrayOfStrings[1],
+                    integerStringMap.get(Integer.valueOf(ArrayOfStrings[2])));
 
             patients.add(patient);
         }
@@ -43,9 +46,20 @@ public class ClinicFileReader implements ClinicReader {
 
     public Map<Integer, String> readProblems() throws IOException, URISyntaxException{
 
-        readFileByName("human_problems.txt");
+        List<String> strings = readFileByName(type.getProblemType());
 
-        return null;
+        Map<Integer,String> problems = new HashMap<>();
+
+        for(int i = 0; i < strings.size(); i++){
+
+            String ReadLines = strings.get(i);
+            String[] ArrayOfStrings = ReadLines.split(",");
+            System.out.println("ProblemID " + ArrayOfStrings[0] + " ProblemName " + ArrayOfStrings[1]);
+
+            problems.put(Integer.valueOf(ArrayOfStrings[0]),ArrayOfStrings[1]);
+        }
+
+        return problems;
     }
 
     public List<String> readFileByName(String fileName) throws IOException,URISyntaxException {

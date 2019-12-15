@@ -5,6 +5,7 @@ import java.util.List;
 public class AbstractPatient extends AbstractClinic {
     private int patientId;
     private String patientName;
+    private String problemType;
 
     public AbstractPatient(int patientId, String patientName) {
 
@@ -13,6 +14,15 @@ public class AbstractPatient extends AbstractClinic {
 
         System.out.println(patientName + " is now a patient in our clinic and has the following Id. Get well! "
                            +patientId);
+    }
+
+    public AbstractPatient(int patientId, String patientName, String problemType) {
+        this.patientId = patientId;
+        this.patientName = patientName;
+        this.problemType = problemType;
+
+        System.out.println(patientName + " is now a patient in our clinic and has the following Id "
+                +patientId + " and his diagnosis is "+problemType);
     }
 
     public int getPatientId() {
