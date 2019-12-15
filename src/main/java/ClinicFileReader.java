@@ -1,5 +1,6 @@
 import abstractClasses.AbstractPatient;
 import abstractClasses.ClinicReader;
+import abstractClasses.PatientType;
 
 import java.io.IOException;
 import java.net.URI;
@@ -16,7 +17,7 @@ public class ClinicFileReader implements ClinicReader {
 
     public List<AbstractPatient> readPatients() throws IOException, URISyntaxException {
 
-        List<String> strings = readFileByName("human_patients.txt");
+        List<String> strings = readFileByName("");
         List<AbstractPatient> patients = new ArrayList<>();
 
         for(int i = 0; i < strings.size(); i++){

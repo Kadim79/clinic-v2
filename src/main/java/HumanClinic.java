@@ -14,7 +14,6 @@ public class HumanClinic extends AbstractClinic {
 
     @Override
     public void addPatient(AbstractPatient patient){
-
         currentPatients.put(patient.getPatientId(),patient);
     }
 
