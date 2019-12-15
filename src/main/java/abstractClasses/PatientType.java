@@ -13,11 +13,11 @@ public enum PatientType {
         this.problemType = problemType;
     }
 
-    String getPatientName(){
+    public String getPatientName(){
         return patientName;
     }
 
-    String getProblemType(){
+    public String getProblemType(){
         return problemType;
     }
 }

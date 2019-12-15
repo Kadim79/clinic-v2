@@ -14,10 +14,16 @@ import java.util.Map;
 
 public class ClinicFileReader implements ClinicReader {
 
+    PatientType type;
+
+    public ClinicFileReader(PatientType type) {
+        this.type =type;
+    }
 
     public List<AbstractPatient> readPatients() throws IOException, URISyntaxException {
 
-        List<String> strings = readFileByName("");
+
+        List<String> strings = readFileByName(type.getPatientName());
         List<AbstractPatient> patients = new ArrayList<>();
 
         for(int i = 0; i < strings.size(); i++){

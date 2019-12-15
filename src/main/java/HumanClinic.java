@@ -21,15 +21,19 @@ public class HumanClinic extends AbstractClinic {
 
    public void addBulkPatient(List<AbstractPatient> patients){
 
-       for (int i = 0; i <patients.size() ; i++) {
-           addPatient(patients.get(i));
+       for (AbstractPatient patient:patients) {
+
+           currentPatients.put(patient.getPatientId(),patient);
        }
 
    }
 
     @Override
     public void removePatientByPatientObject(AbstractPatient patient) {
-        patients.remove(patient);
+
+        currentPatients.remove(patient);
+
+//        removeByPatientID(patient.getPatientId());
 
     }
 
